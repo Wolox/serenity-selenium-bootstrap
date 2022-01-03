@@ -1,0 +1,50 @@
+repositories {
+    mavenCentral()
+    maven{
+        url "https://repo1.maven.org/maven2/"
+    }
+}
+
+buildscript {
+    repositories {
+        maven{
+            url "https://repo1.maven.org/maven2/"
+        }
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.23")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+
+    implementation 'junit:junit:4.13.2'
+    implementation 'net.serenity-bdd:serenity-core:3.1.13'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.1.13'
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:3.1.13'
+    implementation 'net.serenity-bdd:serenity-rest-assured:3.1.13'
+    implementation 'net.serenity-bdd:serenity-junit:3.1.13'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.1.13'
+    testImplementation "io.github.bonigarcia:webdrivermanager:5.0.3"
+    testImplementation 'net.serenity-bdd:serenity-core:3.1.13'
+    testImplementation 'net.serenity-bdd:serenity-junit:3.1.13'
+}
+
+
+tasks.withType(Test) {
+    useJUnit()
+    test.finalizedBy(aggregate)
+}
+
+gradle.startParameter.continueOnFailure = true

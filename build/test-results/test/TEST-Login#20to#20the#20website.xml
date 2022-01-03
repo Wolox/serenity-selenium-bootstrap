@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login to the website" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-03T15:53:04" hostname="AMAC02F8616MD6M" time="16.34">
+  <properties/>
+  <testcase name="Login to the website" classname="Login to the website" time="16.34"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 96.0.4664.45 (76e4c1bb2ab4671b8beba3444e61c0f17584b2fc-refs/branch-heads/4664@{#947}) on port 56238
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+ene 03, 2022 10:53:09 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFORMACIÓN: Detected dialect: W3C
+ene 03, 2022 10:53:09 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFORMACIÓN: Found exact CDP implementation for version 96
+]]></system-err>
+</testsuite>
