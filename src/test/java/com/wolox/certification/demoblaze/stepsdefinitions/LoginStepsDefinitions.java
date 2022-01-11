@@ -39,7 +39,7 @@ public class LoginStepsDefinitions {
     @Then("^verify that the text (.*) is displayed on the screen$")
     public void verifyThatTheTextIsDisplayedOnTheScreen(String message) {
         theActorInTheSpotlight().should(
-                seeThat(GetTheWelcome.message(), equalTo(message + theActorInTheSpotlight().recall("userName")))
+                seeThat(GetTheWelcome.message(), equalTo(message +" "+ theActorInTheSpotlight().recall("userName")))
                         .orComplainWith(TheTextIsNotOnScreen.class,"El mensaje de bienvenida no esta en la pantalla"));
     }
 }
