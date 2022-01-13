@@ -1,4 +1,4 @@
-package com.wolox.certification.demoblaze.userinterface;
+package com.wolox.certification.demoblaze.userinterfaces;
 
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;

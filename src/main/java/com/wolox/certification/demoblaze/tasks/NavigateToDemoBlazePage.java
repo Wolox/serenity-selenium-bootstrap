@@ -1,12 +1,12 @@
 package com.wolox.certification.demoblaze.tasks;
 
-import com.wolox.certification.demoblaze.userinterface.DemoBlazePageHome;
+import com.wolox.certification.demoblaze.userinterfaces.DemoBlazePageHome;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
-import static com.wolox.certification.demoblaze.userinterface.LoginPage.TAB_LOGIN;
+import static com.wolox.certification.demoblaze.userinterfaces.LoginPage.TAB_LOGIN;
 
 public class NavigateToDemoBlazePage implements Task {
     DemoBlazePageHome page;

@@ -1,10 +1,9 @@
 package com.wolox.certification.demoblaze.questions;
 
-
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static com.wolox.certification.demoblaze.userinterface.LoginPage.WELCOME_MESSAGE;
+import static com.wolox.certification.demoblaze.userinterfaces.LoginPage.WELCOME_MESSAGE;
 
 public class GetTheWelcome implements Question<String> {
 

@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
-import static com.wolox.certification.demoblaze.userinterface.LoginPage.*;
+import static com.wolox.certification.demoblaze.userinterfaces.LoginPage.*;
 
 public class DoLogin implements Task {
 

@@ -1,4 +1,4 @@
-package com.wolox.certification.demoblaze.userinterface;
+package com.wolox.certification.demoblaze.userinterfaces;
 
 
 import net.serenitybdd.screenplay.targets.Target;
