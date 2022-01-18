@@ -11,6 +11,7 @@ import com.wolox.certification.demoblaze.tasks.NavigateToDemoBlazePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -22,6 +23,7 @@ public class LoginStepsDefinitions {
     public void setUp() {
         OnStage.setTheStage(new OnlineCast());
         WebDriverManager.chromedriver().setup();
+
     }
 
     @Given("^the (.*) is on the demoblaze login page")
@@ -32,14 +34,14 @@ public class LoginStepsDefinitions {
 
     @When("^you log in with the username (.*) and the password (.*)")
     public void youLogInWithTheUsernameAndThePassword(String username, String password) {
-        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(System.getenv(username), System.getenv(password)));
-        theActorInTheSpotlight().remember("userName", System.getenv(username));
+        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(System.getProperty(username), System.getProperty(password)));
+        theActorInTheSpotlight().remember("userName", System.getProperty(username));
     }
 
     @Then("^verify that the text (.*) is displayed on the screen$")
     public void verifyThatTheTextIsDisplayedOnTheScreen(String message) {
         theActorInTheSpotlight().should(
-                seeThat(GetTheWelcome.message(), equalTo(message +" "+ theActorInTheSpotlight().recall("userName")))
-                        .orComplainWith(TheTextIsNotOnScreen.class,"El mensaje de bienvenida no esta en la pantalla"));
+                seeThat(GetTheWelcome.message(), equalTo(message + " " + theActorInTheSpotlight().recall("userName")))
+                        .orComplainWith(TheTextIsNotOnScreen.class, TheTextIsNotOnScreen.WELCOME_MESSAGE_EXCEPTION));
     }
 }

@@ -11,36 +11,39 @@ buildscript {
             url "https://repo1.maven.org/maven2/"
         }
     }
+    ext{
+        serenityVersion = "3.1.13"
+        serenityGradleVersion =  "2.4.34"
+
+    }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.23")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityGradleVersion")
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "net.serenity-bdd.aggregator"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-compileJava.options.encoding = 'UTF-8'
+compileJava.options.encoding = "UTF-8"
 
 dependencies {
 
-    implementation 'junit:junit:4.13.2'
-    implementation 'net.serenity-bdd:serenity-core:3.1.13'
-    implementation 'net.serenity-bdd:serenity-screenplay:3.1.13'
-    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:3.1.13'
-    implementation 'net.serenity-bdd:serenity-rest-assured:3.1.13'
-    implementation 'net.serenity-bdd:serenity-junit:3.1.13'
-    implementation 'net.serenity-bdd:serenity-cucumber:3.1.13'
+    implementation "junit:junit:4.13.2"
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-rest-assured:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityVersion"
     testImplementation "io.github.bonigarcia:webdrivermanager:5.0.3"
-    testImplementation 'net.serenity-bdd:serenity-core:3.1.13'
-    testImplementation 'net.serenity-bdd:serenity-junit:3.1.13'
+    testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
 }
 
 tasks.withType(Test) {
+    systemProperties =System.properties
     useJUnit()
     test.finalizedBy(aggregate)
 }
