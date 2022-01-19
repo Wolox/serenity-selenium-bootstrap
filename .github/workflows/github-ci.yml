@@ -18,8 +18,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: "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"
           SONAR_HOST_URL: "347c8f3ab5931343897ba8132731bbe814e71942"
