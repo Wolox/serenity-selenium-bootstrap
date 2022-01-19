@@ -19,4 +19,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Gradle
-        run: gradle build
+        run: gradle clean test -DURL=https://www.demoblaze.com -DregisteredUser="pruebaScreenplay1" -DregisteredPassword="pruebaScreenplay" 
