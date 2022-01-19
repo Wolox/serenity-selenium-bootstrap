@@ -18,6 +18,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v2.0.1
+        with:
+         arguments: clean build -x test
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
