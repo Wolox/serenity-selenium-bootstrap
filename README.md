@@ -10,7 +10,7 @@ It is necessary to have installed the Java JDK and Gradle, as well as the enviro
 
 ## Execution for Intellij
 Create a gradle run with the runners located in `com/wolox/certification/demoblaze/runners` 
-<br>The following variables must be added in the`run command
+<br>The following variables must be added in the run command
 <br>`-DURL="base_url"`
 <br>`-DregisteredUser="registeredUser"`
 <br>`-DregisteredPassword="registeredPassword"`
