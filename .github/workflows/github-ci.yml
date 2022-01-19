@@ -1,4 +1,4 @@
-name: Screenplay-java-Bootstrap CI/CD
+name: Serenity-Selenium-Bootstrap CI/CD
 
 on:
   push:
