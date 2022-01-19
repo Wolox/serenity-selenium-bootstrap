@@ -20,3 +20,17 @@ jobs:
           java-version: 1.8
       - name: Build with Gradle
         run: gradle clean test -DURL=https://www.demoblaze.com -DregisteredUser="pruebaScreenplay1" -DregisteredPassword="pruebaScreenplay" 
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: "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"
+          SONAR_HOST_URL: "347c8f3ab5931343897ba8132731bbe814e71942"
+        with:
+          projectBaseDir: ./src
+          args: >
+            -Dsonar.projectKey=serenity-selenium-bootstrap
+            -Dsonar.sources=main/java
+            -Dsonar.tests=test/java
+            -Dsonar.java.binaries=/github/workspace/build/classes
+            -Dsonar.java.libraries=/github/workspace/build/libs
+        
