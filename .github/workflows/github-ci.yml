@@ -25,8 +25,8 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
-          SONAR_TOKEN: "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"
-          SONAR_HOST_URL: "347c8f3ab5931343897ba8132731bbe814e71942"
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           projectBaseDir: ./src
           args: >
@@ -35,4 +35,9 @@ jobs:
             -Dsonar.tests=test/java
             -Dsonar.java.binaries=/github/workspace/build/classes
             -Dsonar.java.libraries=/github/workspace/build/libs
+      - name: Test execution
+        uses: gradle/gradle-build-action@v2.0.1
+        with:
+          arguments: -DBASE_URL=${{ secrets.BASE_URL }} -DREGISTERED_USER=${{ secrets.REGISTERED_USER }} -DREGISTERED_PASSWORD=${{ secrets.REGISTERED_PASSWORD }} clean test aggregate
+
         

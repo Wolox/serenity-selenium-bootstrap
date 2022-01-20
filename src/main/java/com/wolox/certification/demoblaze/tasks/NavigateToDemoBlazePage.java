@@ -11,7 +11,7 @@ public class NavigateToDemoBlazePage implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.wasAbleTo(Open.url(System.getProperty("URL")));
+        actor.wasAbleTo(Open.url(System.getProperty("BASE_URL")));
         actor.attemptsTo(Click.on(TAB_LOGIN));
 
     }
