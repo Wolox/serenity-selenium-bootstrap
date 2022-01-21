@@ -12,6 +12,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
+import static com.wolox.certification.demoblaze.utils.constants.EnvironmentVariables.getVariable;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -32,14 +33,14 @@ public class LoginStepsDefinitions {
         theActorInTheSpotlight().wasAbleTo(NavigateToDemoBlazePage.toGoToTheLoginTab());
     }
 
-    @When("^you log in with the username (.*) and the password (.*)")
-    public void youLogInWithTheUsernameAndThePassword(String username, String password) {
-        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(System.getProperty(username), System.getProperty(password)));
-        theActorInTheSpotlight().remember("userName", System.getProperty(username));
+    @When("^the user login with the username (.*) and the password (.*)")
+    public void theUserLogInWithTheUsernameAndThePassword(String username, String password) {
+        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(getVariable(username), getVariable(password)));
+        theActorInTheSpotlight().remember("userName", getVariable(username));
     }
 
-    @Then("^verify that the text (.*) is displayed on the screen$")
-    public void verifyThatTheTextIsDisplayedOnTheScreen(String message) {
+    @Then("^the user verify that the text (.*) is displayed on the screen$")
+    public void theUserVerifyThatTheTextIsDisplayedOnTheScreen(String message) {
         theActorInTheSpotlight().should(
                 seeThat(GetTheWelcome.message(), equalTo(message + " " + theActorInTheSpotlight().recall("userName")))
                         .orComplainWith(TheTextIsNotOnScreen.class, TheTextIsNotOnScreen.WELCOME_MESSAGE_EXCEPTION));
