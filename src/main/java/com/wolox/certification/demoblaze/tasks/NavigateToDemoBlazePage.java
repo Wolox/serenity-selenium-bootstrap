@@ -12,7 +12,7 @@ public class NavigateToDemoBlazePage implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.wasAbleTo(Open.url(BASE_URL));
+        actor.attemptsTo(Open.url(BASE_URL));
         actor.attemptsTo(Click.on(TAB_LOGIN));
 
     }
