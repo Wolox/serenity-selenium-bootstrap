@@ -33,10 +33,13 @@ public class LoginStepsDefinitions {
         theActorInTheSpotlight().wasAbleTo(NavigateToDemoBlazePage.toGoToTheLoginTab());
     }
 
-    @When("^the user login with the username (.*) and the password (.*)")
-    public void theUserLogInWithTheUsernameAndThePassword(String username, String password) {
-        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(getVariable(username), getVariable(password)));
-        theActorInTheSpotlight().remember("userName", getVariable(username));
+    @When("^the user login with role (.*)")
+    public void theUserLogInWithRole(String role) {
+        theActorInTheSpotlight().attemptsTo(
+                DoLogin.withCredentials(
+                        getVariable(role.toUpperCase().concat("_USER")),
+                        getVariable(role.toUpperCase().concat("_PASSWORD"))));
+        theActorInTheSpotlight().remember("userName", getVariable(role.toUpperCase().concat("_USER")));
     }
 
     @Then("^the user verify that the text (.*) is displayed on the screen$")

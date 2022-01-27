@@ -9,7 +9,7 @@ It is necessary to have installed the Java JDK and Gradle, as well as the enviro
 <br>Then run the command `gradle clean install` to download all the necessary dependencies.
 
 ## Test execution
-* Create a gradle run with the runners located in `com/wolox/certification/demoblaze/runners`
+* Create a gradle run with the runner located in `com/wolox/certification/demoblaze/runner`
 * Change the values of variables in the `serenity.properties` file
 
 ## Contributing
