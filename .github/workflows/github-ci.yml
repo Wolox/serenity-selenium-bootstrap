@@ -1,10 +1,13 @@
-name: Build
+name: Serenity-Selenium-Bootstrap CI/CD
+
 on:
   push:
     branches:
-      - master
+      - main
+      - "feature/*"
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: 
+      - main
 jobs:
   build:
     name: Build
@@ -33,4 +36,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonarqube --info
+        with:
+          arguments: -DBASE_URL=${{ secrets.BASE_URL }} -DREGISTERED_USER=${{ secrets.REGISTERED_USER }} -DREGISTERED_PASSWORD=${{ secrets.REGISTERED_PASSWORD }} clean test aggregate sonarqube --info
+        
