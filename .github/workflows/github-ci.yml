@@ -22,10 +22,11 @@ jobs:
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-      - name: Build and Analyze SonarCloud
+      - name: SonarCloud Scan
+        uses: jinguji/sonarcloud-gradle-github-action@v2
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: sonarqube --info
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
 
         
