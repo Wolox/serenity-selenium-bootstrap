@@ -36,5 +36,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: -DBASE_URL=${{ secrets.BASE_URL }} -DREGISTERED_USER=${{ secrets.REGISTERED_USER }} -DREGISTERED_PASSWORD=${{ secrets.REGISTERED_PASSWORD }} clean test aggregate sonarqube --info
+        run: ./gradlew build sonarqube --info
         
