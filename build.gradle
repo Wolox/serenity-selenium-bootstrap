@@ -18,25 +18,17 @@ buildscript {
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityGradleVersion")
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
     }
-}
-plugins {
-  id "org.sonarqube" version "3.3"
+
 }
 
-sonarqube {
-  properties {
-    property "sonar.projectKey", "serenity-selenium-bootstrap"
-    property "sonar.organization", "serenity-selenium"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
 
 apply plugin: "java"
 apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "net.serenity-bdd.aggregator"
-
+apply plugin: "org.sonarqube"
 compileJava.options.encoding = "UTF-8"
 
 dependencies {
@@ -57,6 +49,13 @@ tasks.withType(Test) {
     systemProperties =System.properties
     useJUnit()
     test.finalizedBy(aggregate)
+}
+sonarqube {
+    properties {
+        property "sonar.projectKey", "serenity-selenium-bootstrap"
+        property "sonar.organization", "serenity-selenium"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 gradle.startParameter.continueOnFailure = true
