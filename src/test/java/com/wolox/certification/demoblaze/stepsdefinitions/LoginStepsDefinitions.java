@@ -12,6 +12,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
+import static com.wolox.certification.demoblaze.utils.constants.EnvironmentVariables.getVariable;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -21,8 +22,8 @@ public class LoginStepsDefinitions {
 
     @Before
     public void setUp() {
+        WebDriverManager.getInstance().setup();
         OnStage.setTheStage(new OnlineCast());
-        WebDriverManager.chromedriver().setup();
 
     }
 
@@ -32,14 +33,17 @@ public class LoginStepsDefinitions {
         theActorInTheSpotlight().wasAbleTo(NavigateToDemoBlazePage.toGoToTheLoginTab());
     }
 
-    @When("^you log in with the username (.*) and the password (.*)")
-    public void youLogInWithTheUsernameAndThePassword(String username, String password) {
-        theActorInTheSpotlight().attemptsTo(DoLogin.withCredentials(System.getProperty(username), System.getProperty(password)));
-        theActorInTheSpotlight().remember("userName", System.getProperty(username));
+    @When("^the user login with role (.*)")
+    public void theUserLogInWithRole(String role) {
+        theActorInTheSpotlight().attemptsTo(
+                DoLogin.withCredentials(
+                        getVariable(role.toUpperCase().concat("_USER")),
+                        getVariable(role.toUpperCase().concat("_PASSWORD"))));
+        theActorInTheSpotlight().remember("userName", getVariable(role.toUpperCase().concat("_USER")));
     }
 
-    @Then("^verify that the text (.*) is displayed on the screen$")
-    public void verifyThatTheTextIsDisplayedOnTheScreen(String message) {
+    @Then("^the user verify that the text (.*) is displayed on the screen$")
+    public void theUserVerifyThatTheTextIsDisplayedOnTheScreen(String message) {
         theActorInTheSpotlight().should(
                 seeThat(GetTheWelcome.message(), equalTo(message + " " + theActorInTheSpotlight().recall("userName")))
                         .orComplainWith(TheTextIsNotOnScreen.class, TheTextIsNotOnScreen.WELCOME_MESSAGE_EXCEPTION));
