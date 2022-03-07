@@ -55,6 +55,7 @@ sonarqube {
         property "sonar.projectKey", "serenity-selenium-bootstrap"
         property "sonar.organization", "serenity-selenium"
         property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.scm.disabled", "True"
     }
 }
 
