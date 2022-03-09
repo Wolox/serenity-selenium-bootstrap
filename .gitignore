@@ -12,6 +12,7 @@ target/*
 */build/
 *gradle.properties
 *!/gradle/wrapper/gradle-wrapper.jar
+gradle/*
 
 # Package Files #
 .classpath
