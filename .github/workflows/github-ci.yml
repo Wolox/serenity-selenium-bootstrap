@@ -19,11 +19,15 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build Gradle and SonarCloud Scan
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@v2.0.1
+      with:
+        arguments: clean build -x test
+    - name: SonarCloud Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: gradle build sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=serenity-selenium-bootstrap -DprojectBaseDir=./src --warning-mode=all
+      run: gradle sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=serenity-selenium-bootstrap -DprojectBaseDir=./src --warning-mode=all
     - name: Test execution
       uses: gradle/gradle-build-action@v2.0.1
       with:
