@@ -20,4 +20,5 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2.0.1
         with:
-         arguments: clean build test
+          gradle-version: 7.4
+          arguments: clean build test
