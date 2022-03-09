@@ -26,7 +26,7 @@ jobs:
     - name: Test execution
       uses: gradle/gradle-build-action@v2.0.1
       with:
-        arguments: -DBASE_URL=${{ secrets.BASE_URL }} clean test aggregate
+        arguments: -DBASE_URL=${{ secrets.BASE_URL }} -DREGISTERED_USER=${{ secrets.REGISTERED_USER }} -DREGISTERED_PASSWORD=${{ secrets.REGISTERED_PASSWORD }} clean test aggregate
     - name: Publish test report
       if: always()
       uses: JamesIves/github-pages-deploy-action@4.1.4
