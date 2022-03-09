@@ -15,6 +15,10 @@ public class NavigateToDemoBlazePage implements Task {
         actor.attemptsTo(
                 Open.url(BASE_URL),
                 Click.on(TAB_LOGIN));
+       // actor.attemptsTo(
+          //      Open.url(BASE_URL),
+         //       Click.on(TAB_LOGIN));
+        System.out.println("hola");
     }
     public static NavigateToDemoBlazePage toGoToTheLoginTab()
     {
