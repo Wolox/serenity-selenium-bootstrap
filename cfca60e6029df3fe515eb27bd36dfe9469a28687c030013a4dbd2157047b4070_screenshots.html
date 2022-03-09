@@ -151,7 +151,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 09-03-2022 20:08</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 09-03-2022 20:11</span>
     <br style="clear:left"/>
 </div>
 
@@ -194,9 +194,9 @@ So check that you login correctly
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Login to the website
+                                <span class="error-color">Login to the website
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -213,29 +213,47 @@ So check that you login correctly
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Invalid argument exception: invalid argument</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.InvalidArgumentException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.wolox.certification.demoblaze.tasks.NavigateToDemoBlazePage.performAs(NavigateToDemoBlazePage.java:15)<br />com.wolox.certification.demoblaze.stepsdefinitions.LoginStepsDefinitions.theUserIsOnTheDemoblazeLoginPage(LoginStepsDefinitions.java:33)<br />io.cucumber.java.Invoker.doInvoke(Invoker.java:66)<br />io.cucumber.java.Invoker.invoke(Invoker.java:24)<br />io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)<br />io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)<br />io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)<br />io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)<br />io.cucumber.core.runner.TestStep.executeStep(TestStep.java:86)<br />io.cucumber.core.runner.TestStep.run(TestStep.java:57)<br />io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)<br />io.cucumber.core.runner.TestCase.run(TestCase.java:95)<br />io.cucumber.core.runner.Runner.runPickle(Runner.java:75)<br />io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$3(CucumberExecutionContext.java:110)<br />io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)<br />io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:110)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)<br />io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:259)<br />io.cucumber.junit.CucumberSerenityRunner.runChild(CucumberSerenityRunner.java:58)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="panel-body">
+                    <a href="pagesource12524815522959122311.html" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="5ad7dd44331b837a17e4fe79faca201dbe782e931b2d5d6b3de9a2acc44974a8.png" title=" Given the user is on the demoblaze login page" width="1132"/>
-                <img src="5ad7dd44331b837a17e4fe79faca201dbe782e931b2d5d6b3de9a2acc44974a8.png" title=" User navigate to demo blaze page" width="1132"/>
-                <img src="5ad7dd44331b837a17e4fe79faca201dbe782e931b2d5d6b3de9a2acc44974a8.png" title=" user opens the https://www.demoblaze.com" width="1132"/>
-                <img src="5ad7dd44331b837a17e4fe79faca201dbe782e931b2d5d6b3de9a2acc44974a8.png" title=" user clicks on tab login" width="1132"/>
-                <img src="0f683937a54a3e0e38e2bf41a4fcef09583ed3bc4e19c57af02026f921354e78.png" title=" user clicks on tab login (completed)" width="1132"/>
-                <img src="0f683937a54a3e0e38e2bf41a4fcef09583ed3bc4e19c57af02026f921354e78.png" title=" User navigate to demo blaze page (completed)" width="1132"/>
-                <img src="0f683937a54a3e0e38e2bf41a4fcef09583ed3bc4e19c57af02026f921354e78.png" title=" Given the user is on the demoblaze login page (completed)" width="1132"/>
-                <img src="a9d1139a249924d32ad7b296922c9c808b50b3d24323cb762af912a1c38cd819.png" title=" When the user login with role admin" width="1132"/>
-                <img src="291772017dfcdc9b9cf78f456b29ad708e66616f312cbaaaec14d489f6252ba8.png" title=" User do login" width="1132"/>
-                <img src="291772017dfcdc9b9cf78f456b29ad708e66616f312cbaaaec14d489f6252ba8.png" title=" user enters 'pruebaScreenplay1' into username input" width="1132"/>
-                <img src="e9eaa472292c89cd80b1e2112b24243255664a756bbe95e851b03ed5063fc83a.png" title=" user enters 'pruebaScreenplay1' into username input (completed)" width="1132"/>
-                <img src="e9eaa472292c89cd80b1e2112b24243255664a756bbe95e851b03ed5063fc83a.png" title=" user enters 'pruebaScreenplay' into password input" width="1132"/>
-                <img src="93a692457272f051af678cf0c17d58334355f4b44475b613d854ee221f00f33d.png" title=" user enters 'pruebaScreenplay' into password input (completed)" width="1132"/>
-                <img src="93a692457272f051af678cf0c17d58334355f4b44475b613d854ee221f00f33d.png" title=" user clicks on button login" width="1132"/>
-                <img src="3d2cf978e3df8ec842699dfdc2f841d9584e2843f03212df1b3a574437037ab8.png" title=" user clicks on button login (completed)" width="1132"/>
-                <img src="3d2cf978e3df8ec842699dfdc2f841d9584e2843f03212df1b3a574437037ab8.png" title=" User do login (completed)" width="1132"/>
-                <img src="3d2cf978e3df8ec842699dfdc2f841d9584e2843f03212df1b3a574437037ab8.png" title=" When the user login with role admin (completed)" width="1132"/>
-                <img src="542bd4aa9a005620b178678d0ef9dc8844a93ee175376ad252cad52f6d2e039f.png" title=" Then the user verify that the text Welcome is displayed on the screen" width="1132"/>
-                <img src="542bd4aa9a005620b178678d0ef9dc8844a93ee175376ad252cad52f6d2e039f.png" title=" Then get the welcome should be 'Welcome pruebaScreenplay1'" width="1132"/>
-                <img src="542bd4aa9a005620b178678d0ef9dc8844a93ee175376ad252cad52f6d2e039f.png" title=" Then get the welcome should be 'Welcome pruebaScreenplay1' (completed)" width="1132"/>
-                <img src="542bd4aa9a005620b178678d0ef9dc8844a93ee175376ad252cad52f6d2e039f.png" title=" Then the user verify that the text Welcome is displayed on the screen (completed): <span class='success-color'>SUCCESS</span>" width="1132"/>
+                <img src="769a739d5ebef3c4db5a491e601b86647f0d8fa420aa0361d56c22b3d92b31bb.png" title=" Given the user is on the demoblaze login page" width="1132"/>
+                <img src="769a739d5ebef3c4db5a491e601b86647f0d8fa420aa0361d56c22b3d92b31bb.png" title=" User navigate to demo blaze page" width="1132"/>
+                <img src="769a739d5ebef3c4db5a491e601b86647f0d8fa420aa0361d56c22b3d92b31bb.png" title=" user opens the $BASE_URL: <span class='error-color'>ERROR</span>" width="1132"/>
             </div>
         </div>
 
