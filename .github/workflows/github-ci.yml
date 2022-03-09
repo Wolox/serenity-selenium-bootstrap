@@ -1,4 +1,4 @@
-name: Serenity-Selenium-Bootstrap CI/CD
+name: Serenity Selenium Bootstrap CI/CD
 
 on:
   push:
@@ -6,19 +6,31 @@ on:
       - main
       - "feature/*"
   pull_request:
-    branches:
+    branches: 
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2.0.1
-        with:
-          gradle-version: 7.4
-          arguments: clean build test
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'adopt'
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@v2.0.1
+      with:
+        arguments: clean build -x test
+    - name: Test execution
+      uses: gradle/gradle-build-action@v2.0.1
+      with:
+        arguments: -DBASE_URL=${{ secrets.BASE_URL }} clean test aggregate
+    - name: Publish test report
+      if: always()
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        BRANCH: gh-pages
+        FOLDER: ./target/site/serenity
+        CLEAN: true
