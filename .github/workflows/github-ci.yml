@@ -31,6 +31,6 @@ jobs:
       if: always()
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        BRANCH: gh-pages
+        BRANCH: serenity-report-execution
         FOLDER: ./target/site/serenity
         CLEAN: true
