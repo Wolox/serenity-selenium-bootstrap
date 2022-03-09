@@ -22,4 +22,4 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.4
-          run: gradle build
+          arguments: clean test aggregate
