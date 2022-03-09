@@ -19,14 +19,11 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2.0.1
-      with:
-        arguments: clean build -x test
-    - name: SonarCloud Scan
+    - name: Build Gradle and SonarCloud Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: gradle clean build -x test sonarqube --info
     - name: Test execution
       uses: gradle/gradle-build-action@v2.0.1
       with:
