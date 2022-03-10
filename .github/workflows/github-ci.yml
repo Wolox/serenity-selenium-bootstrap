@@ -8,7 +8,6 @@ on:
   pull_request:
     branches: 
       - main
-      
 jobs:
   build:
     runs-on: macos-latest
@@ -27,11 +26,17 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: gradle sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=serenity-selenium-bootstrap -DprojectBaseDir=./src --warning-mode=all
+      run: gradle sonarqube 
+            -Dsonar.host.url=https://sonarcloud.io 
+            -Dsonar.projectKey=serenity-selenium-bootstrap 
+            -DprojectBaseDir=./src --warning-mode=all
     - name: Test execution
       uses: gradle/gradle-build-action@v2.0.1
       with:
-        arguments: -DBASE_URL=${{ secrets.BASE_URL }} -DADMIN_USER=${{ secrets.ADMIN_USER }} -DADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }} clean test aggregate
+        arguments: clean test aggregate
+          -DBASE_URL=${{ secrets.BASE_URL }} 
+          -DADMIN_USER=${{ secrets.ADMIN_USER }} 
+          -DADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
     - name: Publish test report
       if: always()
       uses: JamesIves/github-pages-deploy-action@4.1.4
