@@ -22,9 +22,8 @@ public class LoginStepsDefinitions {
 
     @Before
     public void setUp() {
+        WebDriverManager.getInstance().setup();
         OnStage.setTheStage(new OnlineCast());
-        WebDriverManager.chromedriver().setup();
-
     }
 
     @Given("^the (.*) is on the demoblaze login page")
