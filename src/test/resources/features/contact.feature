@@ -5,7 +5,7 @@ Feature: Send contact message on website
   So check that it was sent correctly.
 
   @contactTest
-  Scenario Outline: Send contact message on Website
+  Scena: Send contact message on Website
     Given the user is on the demoblaze contact page
     When the user sends the message with <contactEmail> ,<contactName> and <message>
     Then the user verify that the menu is displayed again
