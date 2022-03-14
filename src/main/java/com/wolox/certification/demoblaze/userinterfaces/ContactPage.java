@@ -1,6 +1,5 @@
 package com.wolox.certification.demoblaze.userinterfaces;
 
-
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 

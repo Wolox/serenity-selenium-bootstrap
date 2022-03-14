@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.wolox.certification.demoblaze.userinterfaces.ContactPage.EMAIL_FIELD;
 import static com.wolox.certification.demoblaze.userinterfaces.ContactPage.NAME_FIELD;

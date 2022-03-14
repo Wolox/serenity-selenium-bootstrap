@@ -28,8 +28,7 @@ public class ContactStepsDefinitions {
 
     @Then("the user verify that the menu is displayed again")
     public void theUserVerifyThatTheMenuIsDisplayedAgain() {
-        theActorInTheSpotlight().should(
-                seeThat(MenuContact.isVisible(), equalTo(true)));
+        theActorInTheSpotlight().should(seeThat(MenuContact.isVisible(), equalTo(true)));
     }
 
 }
