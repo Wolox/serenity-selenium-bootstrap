@@ -1,6 +1,5 @@
 package com.wolox.certification.demoblaze.stepsdefinitions;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,10 +7,8 @@ import com.wolox.certification.demoblaze.exceptions.TheTextIsNotOnScreen;
 import com.wolox.certification.demoblaze.questions.GetTheWelcome;
 import com.wolox.certification.demoblaze.tasks.DoLogin;
 import com.wolox.certification.demoblaze.tasks.NavigateToDemoBlazePage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 
+import static com.wolox.certification.demoblaze.userinterfaces.LoginPage.TAB_LOGIN;
 import static com.wolox.certification.demoblaze.utils.constants.EnvironmentVariables.getVariable;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -20,16 +17,10 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class LoginStepsDefinitions {
 
-    @Before
-    public void setUp() {
-        WebDriverManager.getInstance().setup();
-        OnStage.setTheStage(new OnlineCast());
-    }
-
     @Given("^the (.*) is on the demoblaze login page")
     public void theUserIsOnTheDemoblazeLoginPage(String userName) {
         theActorCalled(userName);
-        theActorInTheSpotlight().wasAbleTo(NavigateToDemoBlazePage.toGoToTheLoginTab());
+        theActorInTheSpotlight().wasAbleTo(NavigateToDemoBlazePage.toGoToTheTab(TAB_LOGIN));
     }
 
     @When("^the user login with role (.*)")
